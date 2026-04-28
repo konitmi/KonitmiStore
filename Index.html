@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>KonitmiStore</title>
+
+<style>
+body {
+  background: linear-gradient(135deg, #0f0f0f, #1a1a2e);
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  padding: 40px;
+}
+
+h1 {
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: #1f1f2e;
+  padding: 20px;
+  border-radius: 15px;
+  width: 300px;
+  box-shadow: 0 0 20px rgba(0,255,200,0.1);
+}
+
+img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.price {
+  font-size: 20px;
+  margin: 10px 0;
+  color: #00ffcc;
+}
+
+.stock {
+  color: orange;
+}
+
+input {
+  padding: 10px;
+  width: 90%;
+  border-radius: 8px;
+  border: none;
+  margin-top: 10px;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px;
+  width: 100%;
+  background: #00ffcc;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.wallets {
+  font-size: 12px;
+  margin-top: 10px;
+  word-break: break-all;
+  color: #ccc;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>KonitmiStore</h1>
+
+<div class="container">
+
+  <!-- PRODUCT 1 -->
+  <div class="card">
+    <img src="https://via.placeholder.com/300" alt="Image A">
+
+    <h2>Genesis Drop A</h2>
+    <p class="stock">🔥 Only 5 left</p>
+    <p class="price">0.9 TON</p>
+
+    <input type="email" placeholder="Enter your Gmail" id="email1">
+
+    <button onclick="buy(1)">Buy Now</button>
+
+    <p id="msg1"></p>
+  </div>
+
+  <!-- PRODUCT 2 -->
+  <div class="card">
+    <img src="https://via.placeholder.com/300" alt="Image B">
+
+    <h2>Genesis Drop B</h2>
+    <p class="stock">🔥 Only 5 left</p>
+    <p class="price">3.99 TON</p>
+
+    <input type="email" placeholder="Enter your Gmail" id="email2">
+
+    <button onclick="buy(2)">Buy Now</button>
+
+    <p id="msg2"></p>
+  </div>
+
+</div>
+
+<script>
+
+function buy(product) {
+  let email = document.getElementById("email"+product).value;
+
+  if (!email) {
+    alert("Enter email first");
+    return;
+  }
+
+  let msg = `
+  Send payment to one of these:
+
+  TON:
+  UQCPPK8uOeKT9HPkNbkk1KoO5tyBa6-P_lv2_Z3Ob7Rcj9e9
+
+  SOL:
+  9ssYqm3chD4YAA9FAVCeQ6C2oXcNFWpvkrsTFwRat7rK
+
+  ETH:
+  0x95af47aC8D5b35c4263556167e4D77470052d71C
+
+  After payment, you will enter TX hash (next step)
+  `;
+
+  document.getElementById("msg"+product).innerText = msg;
+}
+
+</script>
+
+</body>
+</html>
